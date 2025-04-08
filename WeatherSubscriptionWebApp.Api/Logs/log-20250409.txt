@@ -1,0 +1,19 @@
+2025-04-09 00:33:25.481 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 00:33:25.682 +02:00 [INF] Received CreateSubscription request for email: string
+2025-04-09 00:33:25.687 +02:00 [ERR] Error creating subscription for email: string
+System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[WeatherSubscriptionWebApp.Application.Commands.CreateSubscriptionCommand,WeatherSubscriptionWebApp.Domain.Entities.Subscription]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0(CancellationToken t)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at WeatherSubscriptionWebApp.Api.Controllers.SubscriptionController.CreateSubscription(CreateSubscriptionDto dto) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Api\Controllers\SubscriptionController.cs:line 44
+2025-04-09 00:35:27.339 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 00:35:27.559 +02:00 [INF] Received CreateSubscription request for email: string
+2025-04-09 00:36:07.794 +02:00 [INF] Received CreateSubscription request for email: test@example.com
+2025-04-09 00:36:07.819 +02:00 [ERR] Error creating subscription for email: test@example.com
+System.Exception: A subscription with this email already exists.
+   at WeatherSubscriptionWebApp.Application.Handlers.CreateSubscriptionCommandHandler.Handle(CreateSubscriptionCommand request, CancellationToken cancellationToken) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Application\Handlers\CreateSubscriptionCommandHandler.cs:line 22
+   at WeatherSubscriptionWebApp.Api.Controllers.SubscriptionController.CreateSubscription(CreateSubscriptionDto dto) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Api\Controllers\SubscriptionController.cs:line 44
+2025-04-09 00:36:14.141 +02:00 [INF] Received CreateSubscription request for email: test11@example.com
+2025-04-09 00:36:24.927 +02:00 [INF] Received GetSubscription request for email: test11@example.com

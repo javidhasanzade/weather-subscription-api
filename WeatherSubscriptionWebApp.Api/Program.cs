@@ -1,8 +1,10 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using WeatherSubscriptionWebApp.Api.Mappings;
 using WeatherSubscriptionWebApp.Api.Middleware;
+using WeatherSubscriptionWebApp.Application.Handlers;
 using WeatherSubscriptionWebApp.Application.Interfaces;
 using WeatherSubscriptionWebApp.Application.Services;
 using WeatherSubscriptionWebApp.Domain.Interfaces;
@@ -26,6 +28,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddHttpClient<IWeatherClient, OpenWeatherMapClient>();
 builder.Services.AddAutoMapper(typeof(SubscriptionMappingProfile));
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateSubscriptionCommandHandler).Assembly));
 
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
