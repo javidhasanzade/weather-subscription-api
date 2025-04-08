@@ -7,5 +7,5 @@ public interface IWeatherService
     /// <summary>
     /// Retrieves current weather data based on city, country, and optionally zip code.
     /// </summary>
-    Task<WeatherResponse> GetWeatherByLocationAsync(string city, string country, string zipCode = null);
+    Task<WeatherResponse> GetWeatherByLocationAsync(string city, string country, string? zipCode = null, string? countryCode = null);
 }

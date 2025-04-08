@@ -18,4 +18,6 @@ public class Subscription
     public string City { get; set; }
     
     public string? ZipCode { get; set; }
+    
+    public string? CountryCode { get; set; }
 }

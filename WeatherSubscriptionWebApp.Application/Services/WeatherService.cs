@@ -13,9 +13,8 @@ public class WeatherService : IWeatherService
         _weatherClient = weatherClient;
     }
 
-    public async Task<WeatherResponse> GetWeatherByLocationAsync(string city, string country, string zipCode = null)
+    public async Task<WeatherResponse> GetWeatherByLocationAsync(string city, string country, string? zipCode = null, string? countryCode = null)
     {
-        // Delegate the call to the external client implementation.
-        return await _weatherClient.GetWeatherDataAsync(city, country, zipCode);
+        return await _weatherClient.GetWeatherDataAsync(city, country, zipCode, countryCode);
     }
 }

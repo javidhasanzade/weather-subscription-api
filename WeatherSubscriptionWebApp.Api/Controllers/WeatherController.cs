@@ -25,23 +25,21 @@ public class WeatherController : ControllerBase
         if (string.IsNullOrEmpty(email))
             return BadRequest(new { message = "Email is required for login." });
 
-        // Retrieve the user's subscription using email.
         var subscription = await _subscriptionService.GetSubscriptionByEmailAsync(email);
         if (subscription == null)
             return NotFound(new { message = "Subscription not found for the provided email." });
 
         try
         {
-            // Use the stored location details to retrieve current weather data.
             var weather = await _weatherService.GetWeatherByLocationAsync(
                 subscription.City,
                 subscription.Country,
-                subscription.ZipCode);
+                subscription.ZipCode,
+                subscription.CountryCode);
             return Ok(weather);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
-            // Return a 502 Bad Gateway for upstream API failures.
             return StatusCode(502, new { message = ex.Message });
         }
     }

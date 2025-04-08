@@ -22,6 +22,8 @@ builder.Services.AddAutoMapper(typeof(SubscriptionMappingProfile));
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
+builder.Services.AddScoped<IGeoCodingService, OpenWeatherMapGeoCodingService>();
+builder.Services.AddScoped<IWeatherResponseParser, OpenWeatherMapResponseParser>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
