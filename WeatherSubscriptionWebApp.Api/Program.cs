@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using WeatherSubscriptionWebApp.Api.Mappings;
 using WeatherSubscriptionWebApp.Application.Interfaces;
 using WeatherSubscriptionWebApp.Application.Services;
 using WeatherSubscriptionWebApp.Domain.Interfaces;
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddHttpClient<IWeatherClient, OpenWeatherMapClient>();
+builder.Services.AddAutoMapper(typeof(SubscriptionMappingProfile));
 
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();

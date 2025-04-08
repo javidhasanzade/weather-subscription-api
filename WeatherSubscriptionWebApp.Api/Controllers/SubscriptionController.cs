@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WeatherSubscriptionWebApp.Api.DTOs;
 using WeatherSubscriptionWebApp.Application.Interfaces;
@@ -10,10 +11,12 @@ namespace WeatherSubscriptionWebApp.Api.Controllers;
 public class SubscriptionController : ControllerBase
 {
     private readonly ISubscriptionService _subscriptionService;
+    private readonly IMapper _mapper;
 
-    public SubscriptionController(ISubscriptionService subscriptionService)
+    public SubscriptionController(ISubscriptionService subscriptionService, IMapper mapper)
     {
         _subscriptionService = subscriptionService;
+        _mapper = mapper;
     }
     
     [HttpPost]
@@ -22,13 +25,7 @@ public class SubscriptionController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
         
-        var subscription = new Subscription
-        {
-            Email = dto.Email,
-            Country = dto.Country,
-            City = dto.City,
-            ZipCode = dto.ZipCode
-        };
+        var subscription = _mapper.Map<Subscription>(dto);
 
         try
         {
