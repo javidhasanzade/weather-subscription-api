@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using WeatherSubscriptionWebApp.Api.Mappings;
+using WeatherSubscriptionWebApp.Api.Middleware;
 using WeatherSubscriptionWebApp.Application.Interfaces;
 using WeatherSubscriptionWebApp.Application.Services;
 using WeatherSubscriptionWebApp.Domain.Interfaces;
@@ -12,7 +14,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("appsettings.json", false, true);
 
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
 // Add services to the container.
+builder.Host.UseSerilog();
 builder.Services.AddDbContext<AppDbContext>(options => 
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -35,6 +43,8 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
