@@ -33,6 +33,7 @@ builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IGeoCodingService, OpenWeatherMapGeoCodingService>();
 builder.Services.AddScoped<IWeatherResponseParser, OpenWeatherMapResponseParser>();
 
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

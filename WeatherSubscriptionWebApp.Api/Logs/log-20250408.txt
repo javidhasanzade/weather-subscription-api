@@ -1,0 +1,31 @@
+2025-04-08 22:47:41.533 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-08 22:47:41.736 +02:00 [INF] Received CreateSubscription request for email: testtest@example.com
+2025-04-08 22:47:42.389 +02:00 [INF] Subscription created successfully for email: testtest@example.com
+2025-04-08 22:48:00.804 +02:00 [INF] Retrieving subscription for email: testtest@example.com
+2025-04-08 22:48:00.827 +02:00 [INF] Subscription retrieved for email: testtest@example.com
+2025-04-08 22:48:02.155 +02:00 [INF] Retrieving subscription for email: testtest@example.com
+2025-04-08 22:48:02.210 +02:00 [INF] Subscription retrieved for email: testtest@example.com
+2025-04-08 22:48:22.477 +02:00 [INF] Received GetWeather request for email: testtest@example.com
+2025-04-08 22:48:22.481 +02:00 [INF] Fetching weather for Cologne, Germany with ZIP null and CountryCode null
+2025-04-08 22:48:22.486 +02:00 [INF] Getting weather data for City: Cologne, Country: Germany, Zip: null, CountryCode: null
+2025-04-08 22:48:22.490 +02:00 [INF] Getting coordinates for City: Cologne, Country: Germany, Zip: null, CountryCode: null
+2025-04-08 22:48:22.618 +02:00 [INF] Coordinates from direct API: 50.938361, 6.959974
+2025-04-08 22:48:22.625 +02:00 [INF] Coordinates obtained: 50.938361, 6.959974
+2025-04-08 22:48:22.751 +02:00 [INF] Weather response JSON: {"coord":{"lon":6.96,"lat":50.9384},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":10.91,"feels_like":9.47,"temp_min":9.36,"temp_max":11.
+2025-04-08 22:48:22.753 +02:00 [INF] Parsing weather response JSON.
+2025-04-08 22:48:22.757 +02:00 [INF] Successfully retrieved weather data for Cologne, Germany
+2025-04-08 22:48:22.758 +02:00 [INF] Returning weather data for email: testtest@example.com
+2025-04-08 22:58:48.433 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-08 22:58:48.546 +02:00 [INF] Received GetWeather request for email: testtest@example.com
+2025-04-08 22:58:49.680 +02:00 [INF] Cache miss for key: weather_Cologne_Germany_null_null. Fetching weather data...
+2025-04-08 22:58:49.682 +02:00 [INF] Getting weather data for City: Cologne, Country: Germany, Zip: null, CountryCode: null
+2025-04-08 22:58:49.686 +02:00 [INF] Getting coordinates for City: Cologne, Country: Germany, Zip: null, CountryCode: null
+2025-04-08 22:58:49.828 +02:00 [INF] Coordinates from direct API: 50.938361, 6.959974
+2025-04-08 22:58:49.834 +02:00 [INF] Coordinates obtained: 50.938361, 6.959974
+2025-04-08 22:58:49.952 +02:00 [INF] Weather response JSON: {"coord":{"lon":6.96,"lat":50.9384},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":10.67,"feels_like":9.2,"temp_min":9.36,"temp_max":11.8
+2025-04-08 22:58:49.954 +02:00 [INF] Parsing weather response JSON.
+2025-04-08 22:58:49.958 +02:00 [INF] Weather data cached with key: weather_Cologne_Germany_null_null
+2025-04-08 22:58:49.959 +02:00 [INF] Returning weather data for email: testtest@example.com
+2025-04-08 22:59:01.275 +02:00 [INF] Received GetWeather request for email: testtest@example.com
+2025-04-08 22:59:01.293 +02:00 [INF] Cache hit for key: weather_Cologne_Germany_null_null
+2025-04-08 22:59:01.296 +02:00 [INF] Returning weather data for email: testtest@example.com
