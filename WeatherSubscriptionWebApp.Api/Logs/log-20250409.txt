@@ -17,3 +17,11 @@ System.Exception: A subscription with this email already exists.
    at WeatherSubscriptionWebApp.Api.Controllers.SubscriptionController.CreateSubscription(CreateSubscriptionDto dto) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Api\Controllers\SubscriptionController.cs:line 44
 2025-04-09 00:36:14.141 +02:00 [INF] Received CreateSubscription request for email: test11@example.com
 2025-04-09 00:36:24.927 +02:00 [INF] Received GetSubscription request for email: test11@example.com
+2025-04-09 00:53:46.996 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 00:53:47.098 +02:00 [INF] Received CreateSubscription request for email: string
+2025-04-09 00:53:47.759 +02:00 [ERR] Error creating subscription for email: string
+System.Exception: A subscription with this email already exists.
+   at WeatherSubscriptionWebApp.Application.Handlers.CreateSubscriptionCommandHandler.Handle(CreateSubscriptionCommand request, CancellationToken cancellationToken) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Application\Handlers\CreateSubscriptionCommandHandler.cs:line 22
+   at WeatherSubscriptionWebApp.Api.Controllers.SubscriptionController.CreateSubscription(CreateSubscriptionDto dto) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Api\Controllers\SubscriptionController.cs:line 38
+2025-04-09 00:53:54.984 +02:00 [INF] Received CreateSubscription request for email: string1
+2025-04-09 00:56:10.377 +02:00 [WRN] Failed to determine the https port for redirect.

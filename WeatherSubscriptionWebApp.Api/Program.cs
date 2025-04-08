@@ -1,9 +1,13 @@
 using System.Reflection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using WeatherSubscriptionWebApp.Api.DTOs;
 using WeatherSubscriptionWebApp.Api.Mappings;
 using WeatherSubscriptionWebApp.Api.Middleware;
+using WeatherSubscriptionWebApp.Api.Validators;
 using WeatherSubscriptionWebApp.Application.Handlers;
 using WeatherSubscriptionWebApp.Application.Interfaces;
 using WeatherSubscriptionWebApp.Application.Services;
@@ -36,9 +40,11 @@ builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IGeoCodingService, OpenWeatherMapGeoCodingService>();
 builder.Services.AddScoped<IWeatherResponseParser, OpenWeatherMapResponseParser>();
+builder.Services.AddTransient<IValidator<CreateSubscriptionDto>, CreateSubscriptionDtoValidator>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
+builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
