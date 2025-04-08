@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c1270abb_002D8935_002D4ee2_002Da57a_002D246a8095d0ae/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WeatherServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.ApplicationTests.WeatherServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.InfrastructureTests.OpenWeatherMapGeoCodingServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.InfrastructureTests.OpenWeatherMapResponseParserTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.ApiTests.WeatherControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.ApiTests.SubscriptionsControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0B18E6E9-63EC-4F87-BF40-4A0FEBD42071::net9.0::WeatherSubscriptionWebApp.Tests.ApplicationTests.SubscriptionServiceTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
