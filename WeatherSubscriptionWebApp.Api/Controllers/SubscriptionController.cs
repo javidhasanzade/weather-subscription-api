@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WeatherSubscriptionWebApp.Api.DTOs;
 using WeatherSubscriptionWebApp.Application.Interfaces;
 using WeatherSubscriptionWebApp.Domain.Entities;
 
@@ -16,15 +17,22 @@ public class SubscriptionController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> CreateSubscription([FromBody] Subscription subscription)
+    public async Task<IActionResult> CreateSubscription([FromBody] CreateSubscriptionDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
+        
+        var subscription = new Subscription
+        {
+            Email = dto.Email,
+            Country = dto.Country,
+            City = dto.City,
+            ZipCode = dto.ZipCode
+        };
 
         try
         {
             await _subscriptionService.CreateSubscriptionAsync(subscription);
-            // Return the created subscription along with a 201 status code.
             return CreatedAtAction(nameof(GetSubscription), new { email = subscription.Email }, subscription);
         }
         catch (Exception ex)
@@ -32,7 +40,7 @@ public class SubscriptionController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
-    
+
     // GET: api/v1/subscriptions/{email}
     [HttpGet("{email}")]
     public async Task<IActionResult> GetSubscription(string email)

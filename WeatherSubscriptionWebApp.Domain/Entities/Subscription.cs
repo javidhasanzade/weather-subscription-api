@@ -17,5 +17,5 @@ public class Subscription
     [Required]
     public string City { get; set; }
     
-    public string ZipCode { get; set; }
+    public string? ZipCode { get; set; }
 }
