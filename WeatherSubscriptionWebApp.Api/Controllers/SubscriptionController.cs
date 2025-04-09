@@ -1,3 +1,4 @@
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WeatherSubscriptionWebApp.Api.DTOs;
@@ -13,11 +14,13 @@ public class SubscriptionController : ControllerBase
 {
     private readonly ILogger<SubscriptionController> _logger;
     private readonly IMediator _mediator;
+    private readonly IMapper _mapper;
 
-    public SubscriptionController(ILogger<SubscriptionController> logger, IMediator mediator)
+    public SubscriptionController(ILogger<SubscriptionController> logger, IMediator mediator, IMapper mapper)
     {
         _logger = logger;
         _mediator = mediator;
+        _mapper = mapper;
     }
     
     [HttpPost]
@@ -55,6 +58,7 @@ public class SubscriptionController : ControllerBase
         {
             return NotFound(new { message = "Subscription not found." });
         }
-        return Ok(subscription);
+        SubscriptionResponseDto responseDto = _mapper.Map<SubscriptionResponseDto>(subscription);
+        return Ok(responseDto);
     }
 }

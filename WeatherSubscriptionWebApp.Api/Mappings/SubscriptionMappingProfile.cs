@@ -9,5 +9,6 @@ public class SubscriptionMappingProfile : Profile
     public SubscriptionMappingProfile()
     {
         CreateMap<CreateSubscriptionDto, Subscription>();
+        CreateMap<Subscription, SubscriptionResponseDto>();
     }
 }
