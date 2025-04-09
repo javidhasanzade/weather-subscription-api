@@ -89,6 +89,14 @@ To run the application locally:
 ```bash
 dotnet run --project WeatherSubscriptionWebApp.Api
 ```
+To run the application locally with Docker:
+```bash
+build --no-cache -t weathersubscriptionapi .
+```
+And then:
+```
+docker run -d -p 5000:8080 --name weatherapi -e "OpenWeatherMap__ApiKey=5b0fbad1c4fd451f2b5e355e6b3ddef0" -e "ASPNETCORE_ENVIRONMENT=Development" weathersubscriptionapi
+```
 
 ## Running Unit Tests
 Run the tests using the following command:
