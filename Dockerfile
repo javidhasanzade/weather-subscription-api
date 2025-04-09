@@ -1,7 +1,7 @@
 ﻿# Stage 1: Base runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
-EXPOSE 5000
+EXPOSE 8080
 EXPOSE 8081
 
 # Stage 2: Build
@@ -17,7 +17,6 @@ COPY ["WeatherSubscriptionWebApp.Infrastructure/WeatherSubscriptionWebApp.Infras
 
 RUN dotnet restore "WeatherSubscriptionWebApp.Api/WeatherSubscriptionWebApp.Api.csproj"
 
-# Copy all source code into the container.
 COPY . .
 
 WORKDIR "/src/WeatherSubscriptionWebApp.Api"
