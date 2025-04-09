@@ -1,6 +1,7 @@
 using MediatR;
 using WeatherSubscriptionWebApp.Application.Commands;
 using WeatherSubscriptionWebApp.Domain.Entities;
+using WeatherSubscriptionWebApp.Domain.Exceptions;
 using WeatherSubscriptionWebApp.Domain.Interfaces;
 
 namespace WeatherSubscriptionWebApp.Application.Handlers;
@@ -19,7 +20,7 @@ public class CreateSubscriptionCommandHandler : IRequestHandler<CreateSubscripti
         var existingSubscription = await _subscriptionRepository.GetByEmailAsync(request.Email);
         if (existingSubscription != null)
         {
-            throw new Exception("A subscription with this email already exists.");
+            throw new SubscriptionAlreadyExistsException(request.Email);
         }
         
         var newSubscription = new Subscription

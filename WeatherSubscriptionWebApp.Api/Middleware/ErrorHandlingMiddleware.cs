@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using WeatherSubscriptionWebApp.Domain.Exceptions;
 
 namespace WeatherSubscriptionWebApp.Api.Middleware;
 
@@ -31,16 +32,22 @@ public class ErrorHandlingMiddleware
     
     private async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        var correlationId = context.TraceIdentifier;
-        
         int statusCode;
         string message;
         
         switch (exception)
         {
+            case SubscriptionAlreadyExistsException sae:
+                statusCode = StatusCodes.Status400BadRequest;
+                message = sae.Message;
+                break;
+            case WeatherDataNotFoundException wdnf:
+                statusCode = StatusCodes.Status404NotFound;
+                message = wdnf.Message;
+                break;
             case ValidationException ve:
                 statusCode = StatusCodes.Status400BadRequest;
-                message = $"Validation error: {ve.Message}";
+                message = ve.Message;
                 break;
             case UnauthorizedAccessException _:
                 statusCode = StatusCodes.Status401Unauthorized;
@@ -64,7 +71,7 @@ public class ErrorHandlingMiddleware
             Instance = context.Request.Path,
         };
         
-        problemDetails.Extensions["correlationId"] = correlationId;
+        problemDetails.Extensions["correlationId"] = context.TraceIdentifier;
         
         context.Response.ContentType = "application/problem+json";
         context.Response.StatusCode = statusCode;
@@ -72,7 +79,7 @@ public class ErrorHandlingMiddleware
         var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
         var jsonResponse = JsonSerializer.Serialize(problemDetails, options);
         
-        _logger.LogError(exception, "An error occurred (correlationId: {CorrelationId})", correlationId);
+        _logger.LogError(exception, "An error occurred (correlationId: {CorrelationId})", context.TraceIdentifier);
 
         await context.Response.WriteAsync(jsonResponse);
     }

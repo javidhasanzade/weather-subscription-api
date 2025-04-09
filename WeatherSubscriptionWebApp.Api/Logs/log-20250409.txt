@@ -25,3 +25,20 @@ System.Exception: A subscription with this email already exists.
    at WeatherSubscriptionWebApp.Api.Controllers.SubscriptionController.CreateSubscription(CreateSubscriptionDto dto) in C:\Users\jhgru\RiderProjects\WeatherSubsciptionWebApp\WeatherSubscriptionWebApp.Api\Controllers\SubscriptionController.cs:line 38
 2025-04-09 00:53:54.984 +02:00 [INF] Received CreateSubscription request for email: string1
 2025-04-09 00:56:10.377 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 02:12:24.984 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 02:12:25.143 +02:00 [INF] Received GetWeather request for email: test11@example.com
+2025-04-09 02:12:25.768 +02:00 [INF] Cache miss for key: weather_Berlin_Germany_null_null. Fetching weather data...
+2025-04-09 02:12:25.770 +02:00 [INF] Getting weather data for City: Berlin, Country: Germany, Zip: null, CountryCode: null
+2025-04-09 02:12:25.774 +02:00 [INF] Getting coordinates for City: Berlin, Country: Germany, Zip: null, CountryCode: null
+2025-04-09 02:12:25.910 +02:00 [INF] Coordinates from direct API: 52.5170365, 13.3888599
+2025-04-09 02:12:25.916 +02:00 [INF] Coordinates obtained: 52.5170365, 13.3888599
+2025-04-09 02:12:26.017 +02:00 [INF] Weather response JSON: {"coord":{"lon":13.3851,"lat":52.5225},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":6.73,"feels_like":6.73,"temp_min":3.99,"temp_max":8
+2025-04-09 02:12:26.019 +02:00 [INF] Parsing weather response JSON.
+2025-04-09 02:12:26.024 +02:00 [INF] Weather data cached with key: weather_Berlin_Germany_null_null
+2025-04-09 02:12:26.025 +02:00 [INF] Returning weather data for email: test11@example.com
+2025-04-09 02:12:31.152 +02:00 [INF] Received GetWeather request for email: test11@example.com
+2025-04-09 02:12:31.173 +02:00 [INF] Cache hit for key: weather_Berlin_Germany_null_null
+2025-04-09 02:12:31.176 +02:00 [INF] Returning weather data for email: test11@example.com
+2025-04-09 02:12:31.932 +02:00 [INF] Received GetWeather request for email: test11@example.com
+2025-04-09 02:12:31.991 +02:00 [INF] Cache hit for key: weather_Berlin_Germany_null_null
+2025-04-09 02:12:31.995 +02:00 [INF] Returning weather data for email: test11@example.com
