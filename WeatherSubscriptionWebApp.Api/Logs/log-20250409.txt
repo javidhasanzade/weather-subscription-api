@@ -42,3 +42,40 @@ System.Exception: A subscription with this email already exists.
 2025-04-09 02:12:31.932 +02:00 [INF] Received GetWeather request for email: test11@example.com
 2025-04-09 02:12:31.991 +02:00 [INF] Cache hit for key: weather_Berlin_Germany_null_null
 2025-04-09 02:12:31.995 +02:00 [INF] Returning weather data for email: test11@example.com
+2025-04-09 02:23:37.585 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-04-09 02:23:37.758 +02:00 [INF] Received GetWeather request for email: test11@example.com
+2025-04-09 02:23:38.437 +02:00 [INF] Cache miss for key: weather_Berlin_Germany_null_null. Fetching weather data...
+2025-04-09 02:23:38.439 +02:00 [INF] Getting weather data for City: Berlin, Country: Germany, Zip: null, CountryCode: null
+2025-04-09 02:23:38.442 +02:00 [INF] Getting coordinates for City: Berlin, Country: Germany, Zip: null, CountryCode: null
+2025-04-09 02:23:38.568 +02:00 [INF] Coordinates from direct API: 52.5170365, 13.3888599
+2025-04-09 02:23:38.574 +02:00 [INF] Coordinates obtained: 52.5170365, 13.3888599
+2025-04-09 02:23:38.670 +02:00 [INF] Weather response JSON: {"coord":{"lon":13.3889,"lat":52.517},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":6.7,"feels_like":6.7,"temp_min":3.94,"temp_max":8.38
+2025-04-09 02:23:38.671 +02:00 [INF] Parsing weather response JSON.
+2025-04-09 02:23:38.676 +02:00 [INF] Weather data cached with key: weather_Berlin_Germany_null_null
+2025-04-09 02:23:38.677 +02:00 [INF] Returning weather data for email: test11@example.com
+2025-04-09 02:23:46.752 +02:00 [INF] Received GetSubscription request for email: test11@example.com
+2025-04-09 12:49:55.356 +02:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://[::1]:5293: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)

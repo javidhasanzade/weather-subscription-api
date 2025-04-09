@@ -1,6 +1,7 @@
-@WeatherSubsciptionWebApp.Api_HostAddress = http://localhost:5293
+@WeatherSubscriptionWebApp.Api_HostAddress = http://localhost:5000
 
-GET {{WeatherSubsciptionWebApp.Api_HostAddress}}/weatherforecast/
+### Retrieve weather data for a subscribed user by email:
+GET {{WeatherSubscriptionWebApp.Api_HostAddress}}/api/v1/weather?email=user@example.com
 Accept: application/json
 
 ###
